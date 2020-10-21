@@ -99,3 +99,94 @@ const obj = {
 console.log(obj.height);
 
 obj.friends.forEach(i => console.log(i));
+
+
+/////////////////////////
+// Dot vs bracket notation for objects
+
+console.log(obj.name);
+
+// with bracket
+// brackets can take in expressions
+console.log(obj['na' + 'me']);
+
+// with variable
+const nameKey = 'name';
+console.log(obj[nameKey]);
+
+// why use bracket example
+//const hobby = prompt('What is your favorite hobby?');
+//obj['hobby'] = hobby;
+console.log(obj['hobby']);
+
+// adding attribute with dot notation
+obj.location = 'America';
+console.log(obj);
+
+////////////////////////////
+/// Object Methods
+
+const obj1 = {
+  name: 'Dallas',
+  birthYear: 1995,
+  height: '5\'11',
+  friends: ['John','Richie','Stu'],
+
+  calcAge: function () {
+    this.age = new Date().getFullYear() - this.birthYear;
+    return this.age;
+  },
+
+  getFriendsString: function () {
+    let friendStr = ''
+    this.friends.forEach(e => {
+      friendStr += e + ', ';
+    })
+    return friendStr.slice(0,-2);
+  },
+
+  getSummary: function () {
+    return `${this.name} is ${this.calcAge()} and has friends ${this.getFriendsString()}`;
+  }
+}
+
+console.log(obj1.calcAge());
+console.log(obj1.getSummary());
+
+
+//////////////////////////////
+// For loops
+
+for(let i = 1; i <= 10; i++) {
+  console.log('iteration at ' + i);
+}
+
+///////////////////////////////
+// Looping
+
+const obj2 = [
+  'Dallas',
+  25,
+  '5\'11',
+  ['John','Richie','Stu'],
+  true
+];
+
+const types = [];
+
+for(let i = 0; i < obj2.length; i++) {
+  types.push(typeof obj2[i])
+}
+console.log(types);
+
+// looping backwards
+for(let i = obj2.length-1; i >= 0; i--) {
+  console.log(i + ' ' + obj2[i]);
+}
+
+// while loop
+let i = 0
+while (i < 5) {
+  console.log(i);
+  i++
+}
